@@ -28,3 +28,37 @@ describe('Client Routes', () => {
       });
   });
 })
+
+describe('API Routes', () => {
+  before((done) => {
+    db.migrate.latest()
+      .then(() => done())
+      .catch(error => console.log(error));
+  });
+
+  beforeEach((done) => {
+    db.seed.run()
+      .then(() => done())
+      .catch(error => console.log(error));
+  });
+
+  describe('GET /api/v1/list', () => {
+    it('should return all items in the list', (done) => {
+      chai.request(server)
+        .get('/api/v1/list')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('array');
+          res.body.length.should.equal(3);
+          res.body[0].should.have.property('name');
+          res.body[0].name.should.equal('Shoes');
+          res.body[0].should.have.property('reason');
+          res.body[0].reason.should.equal('They suck');
+          res.body[0].should.have.property('cleanliness');
+          res.body[0].cleanliness.should.equal('Rancid');
+          done();
+        });
+    });
+  });
+  
