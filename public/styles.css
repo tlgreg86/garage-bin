@@ -156,3 +156,19 @@ h1.garage-door-header {
   }
 }
 
+/* List wrapper styling */
+
+.list-wrapper {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 73%;
+  width: 58.7%;
+  position: absolute;
+  background-color: lightblue;
+  top: 220px;
+  right: 31px;
+}
+
+
+
