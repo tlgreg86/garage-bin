@@ -13,6 +13,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ENDPOINTS
 
+app.get('/api/v1/list', (req, res) => {
+  database('list').select()
+    .then((items) => {
+      res.status(200).json({items});
+    })
+    .catch((error) => {
+      res.status(500).json({error})
+    })
+})
 
 
 app.listen(port, () => {
