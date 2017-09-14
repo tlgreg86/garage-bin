@@ -130,3 +130,20 @@ describe('API Routes', () => {
         })
     })
     
+    it('should return an error if missing parameters', (done) => {
+      chai.request(server)
+        .patch('/api/v1/list/1')
+        .send({
+          name: 'Guns',
+        })
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.error.should.equal('Missing required parameter cleanliness');
+          done();
+        });
+    });
+  })
+  
+});
