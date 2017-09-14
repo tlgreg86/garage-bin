@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #616161;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+  height: 80px;
+  padding-left: 42px;
+  font-weight: 300;
+}
+
+span {
+  color: #FC0F0C;
+  font-weight: 600;
+  padding-left: 5px;
+}
+
+.main-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Form wrapper styling */
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 33.33%;
+  padding: 30px 6px;
+}
+
+input[type="text"] {
+  padding-left: 10px;
+  width: 250px;
+  height: 30px;
+  margin-top: 15px;
+  font-size: .9em;
+  border-radius: 5px;
+  border: none;
+}
+
+textarea {
+  padding: 10px;
+  width: 250px;
+  height: 100px;
+  margin-top: 15px;
+  font-size: .9em;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.drop-down {
+  padding-left: 10px;
+  width: 250px;
+  height: 30px;
+  margin-top: 15px;
+  font-size: .9em;
+  border: none;
+
+}
+
+input[type="button"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 30px;
+  margin-top: 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Button wrapper styling */
+
+.button-wrapper {
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  border-radius: 29px;
+  margin-top: 15px;
+  height: 50px;
+  width: 50px;
+  font-weight: 600;
+}
+
+/* Garage Door */
+
+.garage-door-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  width: 61.67%;
+  padding: 40px 30px 0 5px;
+}
+
+.garage-door-header {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1.garage-door-header {
+  margin: 0;
+  color: #FC0F0C;
+  height: 100%;
+  font-size: 2.5em;
+  background-color: black;
+  align-items: center;
+}
+
+.garage-door {
+  position: relative;
+  height: 85%;
+  background-image: url("./door.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  display: none; 
+}
+
+.garage-door {
+  -webkit-animation: animationFrames linear 2s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes animationFrames {
+  0% {
+    -webkit-transform:  translate(0px,0px);
+  }
+  100% {
+    -webkit-transform:  translate(0px,-700px);
+  }
+}
+
+/* List wrapper styling */
+
+.list-wrapper {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 73%;
+  width: 58.7%;
+  position: absolute;
+  background-color: lightblue;
+  top: 220px;
+  right: 31px;
+}
+
+
+
