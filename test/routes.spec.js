@@ -62,3 +62,42 @@ describe('API Routes', () => {
     });
   });
   
+  describe('POST /api/v1/list adds an item to list', () => {
+    it('should create a new item', (done) => {
+      chai.request(server)
+        .post('/api/v1/list')
+        .send({
+          id: 4,
+          name: 'Toys',
+          reason: 'I don\'t like them',
+          cleanliness: 'Sparkling'
+        })
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.should.have.property('id');
+          res.body.id.should.equal(4);
+          res.body.should.have.property('name');
+          res.body.name.should.equal('Toys');
+          res.body.should.have.property('reason');
+          res.body.reason.should.equal('I don\'t like them');
+          res.body.should.have.property('cleanliness');
+          res.body.cleanliness.should.equal('Sparkling');
+
+          chai.request(server)
+            .get('/api/v1/list')
+            .end((err, res) => {
+              res.should.have.status(200);
+              res.should.be.json;
+              res.body.should.be.a('array');
+              res.body.length.should.equal(4);
+              res.body[3].should.have.property('name');
+              res.body[3].name.should.equal('Toys');
+              res.body[3].should.have.property('reason');
+              res.body[3].reason.should.equal('I don\'t like them');
+              res.body[3].should.have.property('cleanliness');
+              res.body[3].cleanliness.should.equal('Sparkling');
+              done();
+            });
+        });
+    });
