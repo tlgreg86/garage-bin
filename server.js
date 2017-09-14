@@ -23,6 +23,26 @@ app.get('/api/v1/list', (req, res) => {
     })
 })
 
+app.post('/api/v1/list', (req, res) => {
+  const newItem = req.body;
+  
+  for(const requiredParameter of ['name', 'reason', 'cleanliness']) {
+    if (!newItem[requiredParameter]){
+      return res.status(422).json({
+        error: `Missing required parameter ${requiredParameter}`
+      })
+    }
+  }
+  database('list')
+    .insert(newItem, '*')
+    .then((item) => {
+      res.status(201).json(folder[0])
+    })
+    .catch((error) => {
+      res.status(500).json({error})
+    })
+})
+
 
 app.listen(port, () => {
   console.log(`App is listening on http://localhost:${port}`);
