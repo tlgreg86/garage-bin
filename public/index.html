@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Garage Bin</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    
+    <header class="header-bar">
+      Garage<span>Bin</span>
+    </header>
+    
+    <section class="main-wrapper">
+      <form class="form-wrapper" method="post">
+        <input type="text" name="name" placeholder="Enter name of item">
+        <textarea type="text" name="reason" placeholder="Enter reason why item lingers"></textarea>
+        <select class="drop-down" name="cleanliness">
+          <option selected disabled class="item" value="null">Choose a level of cleanliness</option>
+        </select>
+        <input type="button" name="Submit" value="Submit">
+      </form>
+      <div class="button-wrapper">
+        <button class="up-button" type="button" name="up">Up</button>
+        <button class="down-button" type="button" name="down">Down</button>
+      </div>
+      <div class="garage-door-wrapper">
+        <div class="garage-door-header">
+          <h1 class="garage-door-header">STORE-A-LOT</h1>
+        </div>
+        <section class="list-wrapper">
+          <!-- Append list stuff here -->
+        </section>
+        <div class="garage-door"></div>
+      </div>
+    </section>
+    
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>
