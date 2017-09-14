@@ -101,3 +101,16 @@ describe('API Routes', () => {
             });
         });
     });
+
+    it('should not add an item if a parameter is missing', (done) => {
+      chai.request(server)
+        .post('/api/v1/list')
+        .send({})
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.error.should.equal('Missing required parameter name');
+          done();
+        });
+    });
+  });
+  
