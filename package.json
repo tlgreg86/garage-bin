@@ -2,9 +2,10 @@
   "name": "garage-bin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV='test' ./node_modules/.bin/mocha",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,16 @@
   "homepage": "https://github.com/tlgreg86/garage-bin#readme",
   "dependencies": {
     "knex": "^0.13.0",
-    "pg": "^7.3.0"
+    "pg": "^7.3.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.5.0"
   }
 }
