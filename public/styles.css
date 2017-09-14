@@ -87,3 +87,20 @@ input[type="button"] {
   border: none;
 }
 
+/* Button wrapper styling */
+
+.button-wrapper {
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  border-radius: 29px;
+  margin-top: 15px;
+  height: 50px;
+  width: 50px;
+  font-weight: 600;
+}
+
