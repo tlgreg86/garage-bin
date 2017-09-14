@@ -11,8 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ENDPOINTS
-
 app.get('/api/v1/list', (req, res) => {
   database('list').select()
     .then((items) => {
@@ -57,7 +55,7 @@ app.patch('/api/v1/list/:id', (req, res) => {
     .where('id', req.params.id)
     .update(newCleanliness, '*')
     .then((data) => {
-      res.status(201).json(data[0]);
+      res.status(202).json(data[0]);
     })
     .catch((error) => {
       res.status(500).json({error})
