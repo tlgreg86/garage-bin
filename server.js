@@ -1,9 +1,10 @@
 const express = require('express');
-const bodyParser = requre('body-parser');
+const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 const port = (process.env.PORT || 3000);
 const environment = process.env.NODE_ENV || 'development';
-const configuration = require('/knexfile')[environment];
+const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 
 app.use(bodyParser.json());
