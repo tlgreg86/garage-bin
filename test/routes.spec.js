@@ -114,3 +114,19 @@ describe('API Routes', () => {
     });
   });
   
+  describe('PATCH /api/v1/list/:id', () => {
+    it('should update cleanliness', (done) => {
+      chai.request(server)
+        .patch('/api/v1/list/1')
+        .send({
+          cleanliness: "Dusty"
+        })
+        .end((err, res) => {
+          res.should.have.status(202);
+          res.body.should.be.a('object');
+          res.body.should.have.property('cleanliness');
+          res.body.cleanliness.should.equal('Dusty');
+          done();
+        })
+    })
+    
