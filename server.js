@@ -43,6 +43,26 @@ app.post('/api/v1/list', (req, res) => {
     })
 })
 
+app.patch('/api/v1/list/:id', (req, res) => {
+  const newCleanliness = req.body;
+  
+  for(const requiredParameter of ['id', 'cleanliness']) {
+    if(!newCleanliness[requiredParameter]){
+      return res.status(422).json({
+        error: `Missing required parameter ${requiredParameter}`
+      })
+    }
+  }
+  database('list')
+    .where('id', req.params.id)
+    .update(newCleanliness, '*')
+    .then((data) => {
+      res.status(201).json({data});
+    })
+    .catch((error) => {
+      res.status(500).json({error})
+    })
+})
 
 app.listen(port, () => {
   console.log(`App is listening on http://localhost:${port}`);
