@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/api/v1/list', (req, res) => {
   database('list').select()
     .then((items) => {
-      res.status(200).json({items});
+      res.status(200).json(items);
     })
     .catch((error) => {
       res.status(500).json({error})
@@ -36,7 +36,7 @@ app.post('/api/v1/list', (req, res) => {
   database('list')
     .insert(newItem, '*')
     .then((item) => {
-      res.status(201).json(folder[0])
+      res.status(201).json(item[0])
     })
     .catch((error) => {
       res.status(500).json({error})
@@ -46,7 +46,7 @@ app.post('/api/v1/list', (req, res) => {
 app.patch('/api/v1/list/:id', (req, res) => {
   const newCleanliness = req.body;
   
-  for(const requiredParameter of ['id', 'cleanliness']) {
+  for(const requiredParameter of ['cleanliness']) {
     if(!newCleanliness[requiredParameter]){
       return res.status(422).json({
         error: `Missing required parameter ${requiredParameter}`
@@ -57,7 +57,7 @@ app.patch('/api/v1/list/:id', (req, res) => {
     .where('id', req.params.id)
     .update(newCleanliness, '*')
     .then((data) => {
-      res.status(201).json({data});
+      res.status(201).json(data[0]);
     })
     .catch((error) => {
       res.status(500).json({error})
