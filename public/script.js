@@ -30,3 +30,14 @@ const cleanlinessStats = (array) => {
    </section>`
  )
 }
+
+const getListTotal = () => {
+  fetch('/api/v1/list')
+    .then(res => res.json())
+    .then(items => {
+      $('.list-total').replaceWith
+      (`<h3 class="item-total">Total Items: ${items.length}</h3>`)
+    })
+    .catch(error => console.log({error}))
+}
+
