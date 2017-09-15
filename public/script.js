@@ -50,3 +50,15 @@ const getPerCleanlinessTotal = () => {
     .catch(error => console.log({error}))
 }
 
+const getList = () => {
+  fetch('/api/v1/list')
+    .then(res => res.json())
+    .then(items => {
+      return items.map(item => 
+        $('.list-item-container').append
+        (`<h3 class="item-name">${item.name}</h3>`)
+      )
+    })
+    .catch(error => console.log({error}))
+}
+
