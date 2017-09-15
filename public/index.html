@@ -13,12 +13,15 @@
     
     <section class="main-wrapper">
       <form class="form-wrapper" method="post">
-        <input type="text" name="name" placeholder="Enter name of item">
-        <textarea type="text" name="reason" placeholder="Enter reason why item lingers"></textarea>
+        <input class="name-input" type="text" name="name" placeholder="Enter name of item">
+        <textarea class="reason-input" type="text" name="reason" placeholder="Enter reason why item lingers"></textarea>
         <select class="drop-down" name="cleanliness">
-          <option selected disabled class="item" value="null">Choose a level of cleanliness</option>
+          <option selected disabled class="cleanliness" value="null">Choose a level of cleanliness</option>
+          <option class="cleanliness" value="Sparkling">Sparkling</option>
+          <option class="cleanliness" value="Dusty">Dusty</option>
+          <option class="cleanliness" value="Rancid">Rancid</option>
         </select>
-        <input type="button" name="Submit" value="Submit">
+        <input class="submit" type="button" value="Submit">
       </form>
       <div class="button-wrapper">
         <button class="up-button" type="button" name="up">Up</button>
@@ -29,7 +32,13 @@
           <h1 class="garage-door-header">STORE-A-LOT</h1>
         </div>
         <section class="list-wrapper">
-          <!-- Append list stuff here -->
+          <section class="list-stats-container">
+            <div class="disabled list-total"></div>
+            <div class="disabled per-cleanliness-total"></div>
+          </section>
+          <section class="list-item-container">
+            <div class="disabled list"></div>
+          </section>
         </section>
         <div class="garage-door"></div>
       </div>
