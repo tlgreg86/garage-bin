@@ -101,6 +101,12 @@ const addItem = () => {
     })
 };
 
+const resetInput = () => {
+  nameInput.val('');
+  reasonInput.val('');
+  cleanliness.prop('selectedIndex', 0)
+}
+
 getListTotal()
 getPerCleanlinessTotal()
 getList()
