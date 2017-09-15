@@ -133,6 +133,24 @@ const sortAlphabetically = () => {
     .catch(error => console.log({error}))
 }
 
+const findItem = (item, id) => {
+  item.map(item => {
+    $('.individual-card-wrapper').append(
+      `<div class="individual-card">
+        <h3 class="${id} name">Item Name: ${item.name}</h3>
+        <p class="reason">Reason: ${item.reason}</p>
+        <p class="cleanliness">Cleanliness Level: ${item.cleanliness}</p>
+        <select class="cleanliness-dropdwn" name="cleanliness">
+          <option selected disabled class="cleanliness" value="null">Update cleanliness</option>
+          <option class="cleanliness" value="Sparkling">Sparkling</option>
+          <option class="cleanliness" value="Dusty">Dusty</option>
+          <option class="cleanliness" value="Rancid">Rancid</option>
+        </select>
+        <button class="${id} update-status" type="button" name="submit">Submit</button>
+       </div>`)
+  })
+}
+
 getListTotal()
 getPerCleanlinessTotal()
 getList()
