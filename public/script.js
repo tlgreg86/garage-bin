@@ -88,10 +88,17 @@ const addItem = () => {
     .then(item => {
       getListTotal()
       getPerCleanlinessTotal()
-      return $('.list-item-container').append
-      (`<h3 class="item-name">${item.name}</h3>`)
-      
-    });
+      if (item.name === undefined) {
+        $('.error').remove()
+        return $('.form-wrapper').append
+        (`<h3 class="error">Invalid entry</h3>`)
+      }
+      $('.list').append(`<h3 class="${item.id} item-name">${item.name}</h3>`)
+      $('.error').remove()
+    })
+    .catch(error => {
+      console.log({error});
+    })
 };
 
 getListTotal()
