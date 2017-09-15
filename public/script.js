@@ -62,3 +62,25 @@ const getList = () => {
     .catch(error => console.log({error}))
 }
 
+const addItem = () => {
+  fetch('/api/v1/list', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: nameInput.val(),
+      reason: reasonInupt.val(),
+      cleanliness: cleanliness.val()
+    }),
+  })
+    .then(res => res.json())
+    .then(item => {
+      getListTotal()
+      getPerCleanlinessTotal()
+      return $('.list-item-container').append
+      (`<h3 class="item-name">${item.name}</h3>`)
+      
+    });
+};
+
