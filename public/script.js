@@ -41,3 +41,12 @@ const getListTotal = () => {
     .catch(error => console.log({error}))
 }
 
+const getPerCleanlinessTotal = () => {
+  fetch('/api/v1/list')
+    .then(res => res.json())
+    .then(items => {
+      cleanlinessStats(items)
+    })
+    .catch(error => console.log({error}))
+}
+
