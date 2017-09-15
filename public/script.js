@@ -107,6 +107,32 @@ const resetInput = () => {
   cleanliness.prop('selectedIndex', 0)
 }
 
+const sortAlphabetically = () => {
+  let names = []
+  fetch('/api/v1/list')
+    .then(res => res.json())
+    .then(items => {
+      const sorted = items.sort(function(a, b) {
+        var nameA = a.name.toUpperCase();
+        var nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        return 0;
+      });
+      $('.list').empty()
+      sorted.map(item => {
+        $('.list').append
+        (`<h3 class="${item.id} item-name">${item.name}</h3>`)
+      })
+    })
+    .catch(error => console.log({error}))
+}
+
 getListTotal()
 getPerCleanlinessTotal()
 getList()
