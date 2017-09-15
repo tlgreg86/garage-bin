@@ -174,7 +174,51 @@ getList()
 submit.click((e) => {
   e.preventDefault();
   addItem();
+  resetInput()
 })
+
+sort.click(() => {
+  sortAlphabetically();
+})
+
+$('.list').click((e) => {
+  const id = parseInt(e.target.classList[0]);
+  console.log(id);
+
+  fetch('/api/v1/list')
+    .then(res => res.json())
+    .then(items => {
+      const filteredItem = items.filter(item =>
+        item.id === id
+      )
+      $('.individual-card-wrapper').empty()
+      findItem(filteredItem, id)
+    })
+    .catch(error => console.log({error}))
+})
+
+$('.individual-card-wrapper').click((e) => {
+  if (e.target.type === 'button') {
+    const id = parseInt(e.target.classList[0]);
+
+    fetch(`/api/v1/list/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        cleanliness: $('.cleanliness-dropdwn').val()
+      }),
+    })
+      .then(res => res.json())
+      .then(newItem => {
+        $('.individual-card-wrapper').empty()
+        updateIndividualItem(newItem)
+      })
+      .catch(error => {error})
+  } 
+})
+
 
 
 
