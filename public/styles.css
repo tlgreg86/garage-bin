@@ -132,7 +132,7 @@ h1.garage-door-header {
   align-items: center;
 }
 
-.garage-door {
+/*.garage-door {
   position: relative;
   height: 85%;
   background-image: url("./door.jpg");
@@ -154,21 +154,53 @@ h1.garage-door-header {
   100% {
     -webkit-transform:  translate(0px,-700px);
   }
-}
+}*/
 
 /* List wrapper styling */
 
 .list-wrapper {
   padding: 10px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  height: 73%;
-  width: 58.7%;
-  position: absolute;
-  background-color: lightblue;
-  top: 220px;
-  right: 31px;
+  height: 81%;
+  width: 100%;
+  /*position: absolute;*/
+  background-color: lightgrey;
+  /*top: 220px;
+  right: 31px;*/
 }
 
+.disabled {
+  display: none;
+}
 
+.totals-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.list-stats-container {
+  height: 50%;
+  width: 100%;
+}
+
+.list-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 50%;
+  width: 100%;
+}
+
+h3.item-name {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  height: 50px;
+  background-color: red;
+  margin: 5px;
+  align-items: center;
+}
 
