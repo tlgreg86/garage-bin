@@ -6,11 +6,9 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    
     <header class="header-bar">
       Garage<span>Bin</span>
     </header>
-    
     <section class="main-wrapper">
       <form class="form-wrapper" method="post">
         <input class="name-input" type="text" name="name" placeholder="Enter name of item">
@@ -22,28 +20,20 @@
           <option class="cleanliness" value="Rancid">Rancid</option>
         </select>
         <input class="submit" type="button" value="Submit">
+        <div class="individual-card-wrapper"></div>
       </form>
-      <div class="button-wrapper">
-        <button class="up-button" type="button" name="up">Up</button>
-        <button class="down-button" type="button" name="down">Down</button>
-      </div>
       <div class="garage-door-wrapper">
         <div class="garage-door-header">
           <h1 class="garage-door-header">STORE-A-LOT</h1>
         </div>
         <section class="list-wrapper">
-          <section class="list-stats-container">
-            <div class="disabled list-total"></div>
-            <div class="disabled per-cleanliness-total"></div>
-          </section>
-          <section class="list-item-container">
-            <div class="disabled list"></div>
-          </section>
+          <div class="disabled list-total"></div>
+          <div class="disabled per-cleanliness-total"></div>
+          <button class="sort" type="button" name="button">Sort</button>
+          <div class="list"></div>
         </section>
-        <div class="garage-door"></div>
       </div>
     </section>
-    
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
