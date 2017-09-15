@@ -84,3 +84,14 @@ const addItem = () => {
     });
 };
 
+getListTotal()
+getPerCleanlinessTotal()
+getList()
+
+submit.click((e) => {
+  e.preventDefault();
+  addItem();
+})
+
+
+
