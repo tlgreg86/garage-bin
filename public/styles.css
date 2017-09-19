@@ -19,8 +19,9 @@ body, html {
   font-size: 2em;
   color: white;
   height: 80px;
-  padding-left: 42px;
   font-weight: 300;
+  z-index: 1;
+  background-color: black;
 }
 
 span {
@@ -48,6 +49,11 @@ span {
   color: white;
   outline: none;
   border-radius: 10px;
+}
+
+.door-btn:hover {
+  background-color: white;
+  color: black;
 }
 
 .main-wrapper {
