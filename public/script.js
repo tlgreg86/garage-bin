@@ -219,6 +219,11 @@ $('.individual-card-wrapper').click((e) => {
   } 
 })
 
+$('.door-btn').click(() => {
+  $('.door-btn').text() === 'Open Door' ? $('.door-btn').text('Close Door') : $('.door-btn').text('Open Door');
+  $('.door').toggleClass('open');
+})
+
 
 
 
